@@ -2,14 +2,6 @@
 
 A comprehensive Model Context Protocol (MCP) server that enables Claude and other LLM applications to execute PowerShell commands, scripts, and perform system operations on Windows systems.
 
-## 🌟 **Key Features**
-
-- **🔧 PowerShell Execution**: Execute commands, run scripts, and create new PowerShell files
-- **🖥️ System Monitoring**: Get system info, monitor processes, check services and disk space
-- **📁 File Operations**: List directories, get file info, and search files with pattern matching
-- **⚙️ Simple Setup**: One-command installation with automatic Claude Desktop configuration
-- **🛡️ Secure**: Safe execution with proper error handling and session management
-
 ## 🛠️ **Available Tools**
 
 ### PowerShell Tools
@@ -95,7 +87,7 @@ Custom-Sitecore-MCP-Server/
 
 ## ⚙️ **Claude Desktop Configuration**
 
-The server uses this configuration (automatically applied by setup):
+The server uses this configuration:
 
 ```json
 {

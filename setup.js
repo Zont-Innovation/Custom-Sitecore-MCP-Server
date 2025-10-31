@@ -27,12 +27,12 @@ class PowerShellMCPInstaller {
    */
   runCommand(command, args, options = {}) {
     return new Promise((resolve, reject) => {
-      const child = spawn(command, args, { 
+      const child = spawn(command, args, {
         stdio: 'inherit',
         shell: true,
-        ...options 
+        ...options
       });
-      
+
       child.on('close', (code) => {
         if (code === 0) {
           resolve(code);
@@ -40,7 +40,7 @@ class PowerShellMCPInstaller {
           reject(new Error(`Command failed with exit code ${code}`));
         }
       });
-      
+
       child.on('error', reject);
     });
   }
@@ -111,18 +111,18 @@ class PowerShellMCPInstaller {
    */
   async configureClaudeDesktop() {
     console.log('⚙️ Configuring Claude Desktop...');
-    
+
     try {
       // Create backup of existing configuration
       await this.configManager.createBackup();
-      
+
       // Add PowerShell MCP server configuration
       const result = await this.configManager.addServer('powershell', {
         command: 'node',
         args: [this.serverPath],
         env: {}
       });
-      
+
       if (result.success) {
         console.log('✅ Claude Desktop configuration updated successfully');
         console.log('📍 Server configured at:', this.serverPath);
@@ -180,33 +180,33 @@ class PowerShellMCPInstaller {
     console.log('🚀 PowerShell MCP Server Installation');
     console.log('=====================================');
     console.log('');
-    
+
     // Pre-flight checks
     console.log('🔍 Running pre-flight checks...');
-    
+
     const nodeOK = await this.checkNodeJS();
     if (!nodeOK) return false;
-    
+
     const powershellOK = await this.checkPowerShell();
     if (!powershellOK) return false;
-    
+
     // Install dependencies
     const depsOK = await this.installDependencies();
     if (!depsOK) return false;
-    
+
     // Test server
     const testOK = await this.testServer();
     if (!testOK) {
       console.log('⚠️ Server test failed, but continuing with installation...');
     }
-    
+
     // Configure Claude Desktop
     const configOK = await this.configureClaudeDesktop();
     if (!configOK) return false;
-    
+
     // Show final instructions
     this.displayInstructions();
-    
+
     return true;
   }
 
@@ -215,14 +215,14 @@ class PowerShellMCPInstaller {
    */
   async uninstall() {
     console.log('🗑️ Uninstalling PowerShell MCP Server...');
-    
+
     try {
       // Create backup before removal
       await this.configManager.createBackup();
-      
+
       // Remove server configuration
       const result = await this.configManager.removeServer('powershell');
-      
+
       if (result.success) {
         console.log('✅ PowerShell MCP Server removed from Claude Desktop configuration');
         console.log('ℹ️ Project files are preserved. You can delete the project directory manually if desired.');
@@ -242,7 +242,7 @@ class PowerShellMCPInstaller {
    */
   async repair() {
     console.log('🔧 Repairing PowerShell MCP Server installation...');
-    
+
     // Re-run the installation process
     return await this.install();
   }
