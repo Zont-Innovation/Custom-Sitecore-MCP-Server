@@ -11,10 +11,14 @@ $config = if (-not [string]::IsNullOrWhiteSpace($remotingConfig)) {
     $remotingConfig = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($remotingConfig))
     $remotingConfig | ConvertFrom-Json
 } else {
-
-    Write-Error "Could not load configuration, check .env file: $_"
-    exit 1
-
+    try {
+        $configFile = Join-Path $PSScriptRoot "./config.LOCAL.json"
+        Get-Content -Raw $configFile | ConvertFrom-Json
+    }
+    catch {
+        Write-Error "Could not load config at '$configFile': $_"
+        exit 1
+    }
 }
 foreach ($p in 'connectionUri','username','SPE_REMOTING_SECRET') {
     if (-not $config.$p) {
