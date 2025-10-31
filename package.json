@@ -1,0 +1,61 @@
+{
+  "name": "powershell-mcp-server",
+  "version": "1.1.1",
+  "description": "A comprehensive Model Context Protocol (MCP) server that enables Claude and other LLM applications to execute PowerShell commands, scripts, and system operations on Windows systems.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node test-server.js",
+    "diagnose": "node diagnose.bat"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "powershell",
+    "claude",
+    "ai",
+    "llm",
+    "windows",
+    "automation",
+    "system-administration",
+    "scripts",
+    "cli",
+    "windows-management",
+    "devops",
+    "system-monitoring"
+  ],
+  "author": "Gunjan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gunjanjp/powershell-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gunjanjp/powershell-mcp/issues"
+  },
+  "homepage": "https://github.com/gunjanjp/powershell-mcp#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "node-powershell": "^5.0.1",
+    "zod": "^3.22.0"
+  },
+  "files": [
+    "src/",
+    "scripts/",
+    "examples/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "claude_desktop_config.json"
+  ],
+  "preferGlobal": false,
+  "os": [
+    "win32"
+  ]
+}

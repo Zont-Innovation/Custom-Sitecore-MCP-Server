@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "powershell": {
+      "command": "node",
+      "args": ["C:\\Projects\\Symposium\\Custom-Sitecore-MCP-Server\\src\\server.js"],
+      "env": {}
+    }
+  }
+}
