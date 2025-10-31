@@ -1,7 +1,7 @@
 param(
-    [string]$FindText      = "Sitecore",
-    [string]$ReplaceText   = "SiteCore",
-    [string]$ScopePaths    = "/sitecore/content"   # comma separated for multiple roots, for example "/sitecore/content/SiteA, /sitecore/content/SiteB"
+    [string]$FindText, #      = "Sitecore",
+    [string]$ReplaceText, #   = "SiteCore",
+    [string]$ScopePaths, #    = "/sitecore/content"   # comma separated for multiple roots, for example "/sitecore/content/SiteA, /sitecore/content/SiteB"
 )
 
 $CaseSensitive = $true
