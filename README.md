@@ -50,7 +50,7 @@ node recovery.js add-powershell
 ## 📖 **Usage Examples**
 
 Ask Claude:
-- *"Replace all field values 'SiteCore' to 'Sitecore' under /sitecore/content/Zont"*
+- *"Replace all field values 'Sitecore' to 'Zont Digital' under /sitecore/content/Zont"*
 - ... any other tool you may want to implement
 
 ## 🔧 **Commands**
